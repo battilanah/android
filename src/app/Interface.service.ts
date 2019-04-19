@@ -16,3 +16,25 @@ export interface IMovie {
   overview: string;
   release_date: string;
 }
+export interface Sprites {
+  normal: string;
+  large: string;
+  animated: string;
+}
+
+export interface pokemon {
+  national_number: string;
+  evolution?: any;
+  sprites: Sprites;
+  name: string;
+  type: string[];
+  total: number;
+  hp: number;
+  attack: number;
+  defense: number;
+  sp_atk: number;
+  sp_def: number;
+  speed: number;
+}
+
+

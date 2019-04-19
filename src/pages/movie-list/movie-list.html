@@ -17,8 +17,8 @@
 <ion-content padding>
   <ion-grid *ngIf="movies">
     <ion-row>
-      <ion-col col-4 *ngFor="let movie of movies">
-        <img [src]="movie.poster_path" (click)="goToDetail(movie)" />
+      <ion-col col-4 *ngFor="let movie of movies.results">
+        <img [src]="movie.sprites.animated" (click)="goToDetail(movie)" />
       </ion-col>
     </ion-row>
   </ion-grid>
