@@ -27,14 +27,14 @@ export class MovieDetailPage {
 
   ionViewDidLoad() {
     this.movie = this.navParams.data;
-    this.favoriteMovieProvider
+   /* this.favoriteMovieProvider
       .isFavoriteMovie(this.movie)
-      .then(value => (this.favorite = value));
+      .then(value => (this.favorite = value));*/
   }
 
-  toggleFavorite(): void {
+/*  toggleFavorite(): void {
     this.favorite = !this.favorite;
     this.favoriteMovieProvider.toogleFavoriteMovie(this.movie);
 
-}
+}*/
 }
