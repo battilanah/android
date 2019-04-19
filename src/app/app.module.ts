@@ -14,6 +14,8 @@ import{MovieListPage} from "../pages/movie-list/movie-list";
 import {MyMoviesPage} from "../pages/my-movies/my-movies";
 import { MovieApiProvider } from '../providers/movie-api/movie-api';
 import { HttpClientModule, HttpHeaders  } from '@angular/common/http';
+import {IonicStorageModule} from "@ionic/storage";
+import { FavoriteMovieProvider } from '../providers/favorite-movie/favorite-movie';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { HttpClientModule, HttpHeaders  } from '@angular/common/http';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +48,8 @@ import { HttpClientModule, HttpHeaders  } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MovieApiProvider
+    MovieApiProvider,
+    FavoriteMovieProvider
   ]
 })
 export class AppModule {}

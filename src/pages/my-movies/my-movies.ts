@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {MovieListPage} from "../movie-list/movie-list";
+import {FavoriteMovieProvider} from "../../providers/favorite-movie/favorite-movie";
+import {IMovie} from "../../app/Interface.service";
+import {MovieDetailPage} from "../movie-detail/movie-detail";
 
 /**
  * Generated class for the MyMoviesPage page.
@@ -17,13 +20,33 @@ import {MovieListPage} from "../movie-list/movie-list";
 
 
 export class MyMoviesPage {
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  favoriteMovies: IMovie[] = [];
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private favoriteMovieProvider: FavoriteMovieProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log("ionViewDidLoad MyMoviesPage");
   }
 
+  ionViewWillEnter() {
+    this.initFavoriteMovies();
+  }
+
+  private initFavoriteMovies() {
+    this.favoriteMovieProvider
+      .getFavoriteMovies()
+      .then(favs => (this.favoriteMovies = favs));
+  }
+
   findMovie() {
     this.navCtrl.push(MovieListPage);
+  }
+
+  goToDetail(movie: IMovie) {
+    this.navCtrl.push(MovieDetailPage, movie);
   }
 }

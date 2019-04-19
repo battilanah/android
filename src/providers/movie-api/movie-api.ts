@@ -19,6 +19,6 @@ export class MovieApiProvider {
   }
 
   getMovies() {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}`, {headers: { 'Content-Type': 'application/json; charset=UTF-8'}});
   }
 }

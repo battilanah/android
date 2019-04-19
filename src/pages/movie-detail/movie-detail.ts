@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {IMovie} from "../../app/Interface.service";
+import {FavoriteMovieProvider} from "../../providers/favorite-movie/favorite-movie";
 
 /**
  * Generated class for the MovieDetailPage page.
@@ -16,13 +17,24 @@ import {IMovie} from "../../app/Interface.service";
 })
 export class MovieDetailPage {
   movie: IMovie;
+  favorite: boolean = false;
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private favoriteMovieProvider: FavoriteMovieProvider
   ) {}
 
   ionViewDidLoad() {
     this.movie = this.navParams.data;
+    this.favoriteMovieProvider
+      .isFavoriteMovie(this.movie)
+      .then(value => (this.favorite = value));
   }
+
+  toggleFavorite(): void {
+    this.favorite = !this.favorite;
+    this.favoriteMovieProvider.toogleFavoriteMovie(this.movie);
+
+}
 }
