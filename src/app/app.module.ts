@@ -9,29 +9,43 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import {MovieDetailPage} from "../pages/movie-detail/movie-detail";
+import{MovieListPage} from "../pages/movie-list/movie-list";
+import {MyMoviesPage} from "../pages/my-movies/my-movies";
+import { MovieApiProvider } from '../providers/movie-api/movie-api';
+import { HttpClientModule, HttpHeaders  } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+    MovieDetailPage,
+    MovieListPage,
+    MyMoviesPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ListPage,
+
+    MovieListPage,
+    MovieDetailPage,
+    MyMoviesPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MovieApiProvider
   ]
 })
 export class AppModule {}
