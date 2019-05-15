@@ -10,30 +10,30 @@ export class FavoriteMovieProvider {
     console.log("Hello UserPreferencesProvider Provider");
   }
 
-  addFavoriteMovie(movie: IMovie) {
-    this.storage.set(this.getMovieKey(movie), JSON.stringify(movie));
+  addFavoriteMovie(pokemon) {
+    this.storage.set(this.getMovieKey(pokemon), JSON.stringify(pokemon));
   }
 
-  removeFavoriteMovie(movie: IMovie) {
-    this.storage.remove(this.getMovieKey(movie));
+  removeFavoriteMovie(pokemon) {
+    this.storage.remove(this.getMovieKey(pokemon));
   }
 
-  isFavoriteMovie(movie: IMovie) {
-    return this.storage.get(this.getMovieKey(movie));
+  isFavoriteMovie(pokemon) {
+    return this.storage.get(this.getMovieKey(pokemon));
   }
 
-  toogleFavoriteMovie(movie: IMovie) {
-    this.isFavoriteMovie(movie).then(
+  toogleFavoriteMovie(pokemon) {
+    this.isFavoriteMovie(pokemon).then(
       isFavorite =>
         isFavorite
-          ? this.removeFavoriteMovie(movie)
-          : this.addFavoriteMovie(movie)
+          ? this.removeFavoriteMovie(pokemon)
+          : this.addFavoriteMovie(pokemon)
     );
   }
 
-  getMovieKey(movie: IMovie) {
-    return MOVIE_KEY + movie.id.toString();
-  }
+  getMovieKey(pokemon) {
+    return MOVIE_KEY + pokemon.Number.toString();
+}8
 
   getFavoriteMovies(): Promise<IMovie[]> {
     return new Promise(resolve => {

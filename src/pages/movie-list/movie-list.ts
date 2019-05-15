@@ -72,7 +72,9 @@ export class MovieListPage {
   ];*/
 
   movies :any;
-
+  searchTerm: string = '';
+  items: any;
+  filtereditems:any;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -80,12 +82,30 @@ export class MovieListPage {
   ) {}
 
   ionViewDidLoad() {
+    this.items=[]
     this.movieApiProvider.getMovies().subscribe(data =>{
       this.movies = data;
+    /*  this.movies.forEach(element => {
+        console.log(element.sprites)
+        this.items.push(element.name)
+      })/*/
+      console.log(this.items)
+      console.log(this.movies)
+
     })
   }
 
-  goToDetail(movie: IMovie) {
-    this.navCtrl.push(MovieDetailPage, movie);
+  filterItems(){
+    console.log(this.searchTerm);
+    this.filtereditems=this.movies.filter((item) => {
+      console.log(item.nom.toLowerCase().indexOf(this.searchTerm.toLowerCase()));
+      return item.nom.toLowerCase().indexOf(this.searchTerm.toLowerCase()) > -1;
+
+    });
+
+  }
+
+  goToDetail(pokemon) {
+    this.navCtrl.push(MovieDetailPage, pokemon);
   }
 }

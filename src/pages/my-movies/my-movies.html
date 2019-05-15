@@ -13,7 +13,7 @@
 </ion-navbar>
 
 <ion-toolbar color="secondary">
-  <ion-title>My favorite movies</ion-title>
+  <ion-title>My Poke-List !</ion-title>
 </ion-toolbar>
 </ion-header>
 
@@ -25,7 +25,7 @@
       <ion-item *ngFor="let movie of favoriteMovies" (click)="goToDetail(movie)">
         <ion-row>
           <ion-col col-1>
-              <img [src]="movie.poster_path">
+              <img [src]="movie.sprites.large">
           </ion-col>
           <ion-col col-1>
             <ion-icon name="star"></ion-icon>
@@ -43,10 +43,10 @@
       </ion-item>
     </ion-list>
     <ion-card-content>
-      <p>To choose more movies, click on this button.</p>
-      <button icon-left ion-button full (click)="findMovie()">
+      <p>To choose more pokemon, click on this button.</p>
+      <button icon-left ion-button full (click)="AddPokemon()">
         <ion-icon name="search"></ion-icon>
-        Find a movie
+        Find a pokemon
       </button>
     </ion-card-content>
   </ion-card>
@@ -56,9 +56,9 @@
       <ion-card-content>
         <p>You haven't selected any movie</p>
         <p>Please select one by using the button below</p>
-        <button ion-button icon-left full (click)="findMovie()">
+        <button ion-button icon-left full (click)="AddPokemon()">
           <ion-icon name="search"></ion-icon>
-          Find a movie
+          Add a Pokemon to my List!
         </button>
       </ion-card-content>
     </ion-card>

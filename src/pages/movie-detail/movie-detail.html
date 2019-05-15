@@ -16,16 +16,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="movie">
-    <img [src]="movie.sprites.large " style="height: 30%"/>
+  <ion-card *ngIf="pokemon">
+    <img [src]="pokemon.sprites.animated" style="height: 30%"/>
     <ion-card-header>
       <h2>details
-        <ion-badge color="primary">{{movie.national_number}}</ion-badge>
+
       </h2>
     </ion-card-header>
-    <ion-card-content>type: {{movie.type.toString()}}</ion-card-content>
-    <ion-card-content>hp: {{movie.hp}}</ion-card-content>
-    <ion-card-content>attack: {{movie.attack}}</ion-card-content>
-    <ion-card-content>defense: {{movie.defense}}</ion-card-content>
+    <ion-card-content>type: {{pokemon.Number}}</ion-card-content>
+
   </ion-card>
 </ion-content>

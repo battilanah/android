@@ -42,7 +42,7 @@ export class MyMoviesPage {
       .then(favs => (this.favoriteMovies = favs));
   }
 
-  findMovie() {
+  AddPokemon() {
     this.navCtrl.push(MovieListPage);
   }
 

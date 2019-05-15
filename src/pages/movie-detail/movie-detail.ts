@@ -16,7 +16,7 @@ import {FavoriteMovieProvider} from "../../providers/favorite-movie/favorite-mov
   templateUrl: 'movie-detail.html',
 })
 export class MovieDetailPage {
-  movie: IMovie;
+  pokemon : any;
   favorite: boolean = false;
 
   constructor(
@@ -26,15 +26,16 @@ export class MovieDetailPage {
   ) {}
 
   ionViewDidLoad() {
-    this.movie = this.navParams.data;
+    this.pokemon = this.navParams.data;
+    console.log(this.pokemon.sprites.large)
    /* this.favoriteMovieProvider
       .isFavoriteMovie(this.movie)
       .then(value => (this.favorite = value));*/
   }
 
-/*  toggleFavorite(): void {
+toggleFavorite(): void {
     this.favorite = !this.favorite;
-    this.favoriteMovieProvider.toogleFavoriteMovie(this.movie);
+    this.favoriteMovieProvider.toogleFavoriteMovie(this.pokemon);
 
-}*/
+}
 }

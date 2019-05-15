@@ -7,8 +7,8 @@ import {IMovie} from "../../app/Interface.service";
 
 @Injectable()
 export class MovieApiProvider {
-  private baseUrl: string = "../../assets/api/movies.json";
-  private pokemon : string ="https://unpkg.com/pokemons@1.1.0/pokemons.json";
+  private pokemon: string = "../../assets/api/pokemon.json";
+
 
   movies: IMovie[];
 

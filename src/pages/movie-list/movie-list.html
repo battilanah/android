@@ -11,14 +11,27 @@
     </button>
     <ion-title>Movie List</ion-title>
   </ion-navbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterItems()">
+
+    </ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
+  <ion-grid ion-fixed no-padding>
+    <ion-list  style="position: absolute;z-index:1;width:100%;">
+      <ion-item *ngFor=" let pokemon of filtereditems" color="silver" (click)="goToDetail(pokemon)">
+        {{pokemon.nom}}
+      </ion-item>
+    </ion-list>
+  </ion-grid>
   <ion-grid *ngIf="movies">
     <ion-row>
-      <ion-col col-4 *ngFor="let movie of movies.results">
-        <img [src]="movie.sprites.animated" (click)="goToDetail(movie)" />
+      <ion-col col-4 *ngFor="let pokemon of movies">
+        <img [src]="pokemon.sprites.large" (click)="goToDetail(pokemon)" />
+
       </ion-col>
     </ion-row>
   </ion-grid>
